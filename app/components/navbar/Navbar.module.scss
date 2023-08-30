@@ -1,0 +1,10 @@
+.root {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    .menu_item {
+      list-style: none;
+    }
+  }
+}
