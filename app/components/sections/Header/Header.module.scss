@@ -1,8 +1,27 @@
 .root {
   height: 80px;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
+  .logo_side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+    .search {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: var(--gray-light);
+      color: #83859c;
+      width: 220px;
+      padding: 10px;
+      border-radius: 12px;
+      input {
+        width: 100%;
+      }
+    }
+  }
 }

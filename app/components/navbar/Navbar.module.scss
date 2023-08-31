@@ -2,9 +2,38 @@
   .menu {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 28px;
+    font-weight: 700;
+
     .menu_item {
       list-style: none;
+    }
+    .menu_item:nth-child(3) {
+      border-left: 1px solid var(--gray-light);
+      padding-left: 20px;
+    }
+    .basket {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--light);
+      border-radius: 16px;
+      width: 48px;
+      height: 48px;
+      margin: auto;
+    }
+    .menu_item:last-child {
+      outline: 2px solid var(--light);
+      border-radius: 16px;
+      width: 48px;
+      height: 48px;
+    }
+    .avatar {
+      width: 100%;
+      outline: 2px solid white;
+      outline-offset: -2px;
+      border-radius: 16px;
     }
   }
 }

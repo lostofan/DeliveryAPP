@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/useGetRestaurants.js"
+    "app/useGetRestaurants.ts"
   ],
   "exclude": ["node_modules"]
 }
