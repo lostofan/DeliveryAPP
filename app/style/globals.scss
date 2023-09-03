@@ -2,13 +2,23 @@ html {
   max-width: 1110px;
   margin: 0 auto;
   background-color: #fff;
+  scroll-behavior: smooth;
+  font-family: 'Nunito';
 }
 a,
 p,
 li {
-  font-family: 'Nunito';
   color: var(--black);
 }
-input {
+input,
+button,
+a,
+h2,
+h3,
+h4 {
   all: unset;
+}
+button,
+a {
+  cursor: pointer;
 }

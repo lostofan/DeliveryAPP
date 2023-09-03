@@ -1,14 +1,21 @@
 import React from 'react';
 import styles from './Navbar.module.scss';
 import Image from 'next/image';
+import avatar from 'public/imgs/avatar.png';
 
 export const Navbar = () => {
   return (
     <nav className={styles.root}>
       <ul className={styles.menu}>
-        <li className={styles.menu_item}>Restaurants</li>
-        <li className={styles.menu_item}>Deals</li>
-        <li className={styles.menu_item}>My orders</li>
+        <li className={styles.menu_item}>
+          <a href="#restaurants">Restaurants</a>
+        </li>
+        <li className={styles.menu_item}>
+          <a href="#promo">Deals</a>
+        </li>
+        <li className={styles.menu_item}>
+          <a href="#">My orders</a>
+        </li>
         <li className={`${styles.menu_item} ${styles.basket}`}>
           <svg
             width="20"
@@ -40,7 +47,7 @@ export const Navbar = () => {
           </svg>
         </li>
         <li className={styles.menu_item}>
-          <img className={styles.avatar} src="/imgs/avatar.png" alt="Avatar" />
+          <Image className={styles.avatar} src={avatar} alt="Avatar" />
         </li>
       </ul>
     </nav>

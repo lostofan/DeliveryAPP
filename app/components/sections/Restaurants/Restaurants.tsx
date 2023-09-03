@@ -2,37 +2,23 @@
 import React from 'react';
 import { useGetRestaurants } from '../../../useGetRestaurants';
 import styles from './Restaurants.module.scss';
+import { RestaurantItem } from '../../Navbar/RestaurantItem';
+import { useAppSelector } from '@/app/Redux/hook';
+import { selectFilter } from '@/app/Redux/Slices/selectorSlice';
 
 export const Restaurants = () => {
-  const restaurants: {
-    id: number;
-    name: string;
-    address: string;
-    kitchens: {
-      kitchenName: string;
-    }[];
-    img: string;
-  }[] = useGetRestaurants();
+  const array = useAppSelector(selectFilter).toString();
+  const restaurants = useGetRestaurants(array);
+
   return (
-    <>
-      {restaurants.map(({ id, name, address, kitchens, img }) => (
-        <div key={id} className={styles.root}>
-          <div className={styles.img_wrapper}>
-            <img src={img} alt="" />
-          </div>
-          <div className={styles.info}>
-            <h3 className={styles.name}>{name}</h3>
-            <h4 className={styles.address}>{address}</h4>
-            <div className={styles.kitchen_block}>
-              {kitchens.map(({ kitchenName }, idx) => (
-                <div key={idx} className={styles.kitchen_item}>
-                  {kitchenName}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-    </>
+    <section className={styles.root} id="#restaurants">
+      <p>{array}</p>
+      <h2 className={styles.title}>Restaurants</h2>
+      <div className={styles.restaurantsList}>
+        {restaurants.map(({ id, name, address, kitchens, img }) => (
+          <RestaurantItem key={id} name={name} address={address} kitchens={kitchens} img={img} />
+        ))}
+      </div>
+    </section>
   );
 };

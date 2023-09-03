@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { Navbar } from '../../navbar';
+import { Navbar } from '../../Navbar';
+import Image from 'next/image';
+import logo from 'public/imgs/logo.png';
+import search from 'public/imgs/search.svg';
 
 export const Header = () => {
   return (
     <header className={styles.root}>
       <div className={styles.logo_side}>
-        <img className={styles.logo} src="imgs/logo.png" alt="" />
+        <Image className={styles.logo} src={logo} alt="LOGO" />
         <div className={styles.search}>
           <input type="search" name="search" placeholder="Search" id="" />
-          <img src="imgs/search.svg" alt="" />
+          <button>
+            <Image src={search} alt="search" />
+          </button>
         </div>
       </div>
       <Navbar />

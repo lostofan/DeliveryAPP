@@ -1,35 +1,14 @@
 .root {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  height: 300px;
-  border: 1px solid #c7c8d2;
-  .img_wrapper {
-    height: 160px;
+  .title {
+    font-size: 20px;
+    font-weight: 600;
   }
-  .info {
-    padding: 16px;
+  .restaurantsList {
+    margin-top: 16px;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    .name {
-      font-size: 18px;
-      color: black;
-    }
-    .address {
-      font-size: 12px;
-      color: gray;
-    }
-    .kitchen_block {
-      font-size: 12px;
-      color: black;
-      display: flex;
-      flex-direction: row;
-      gap: 15px;
-      .kitchen_item {
-        padding: 10px;
-        border: 1px solid black;
-      }
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
   }
 }
