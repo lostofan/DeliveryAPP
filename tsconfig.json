@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/useGetRestaurants.ts",
-    "app/Redux/Slices/SelectorSlice"
+    "app/Redux/Slices/selectorSlice.ts"
   ],
   "exclude": ["node_modules"]
 }

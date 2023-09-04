@@ -2,19 +2,20 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import Image from 'next/image';
 import avatar from 'public/imgs/avatar.png';
+import Link from 'next/link';
 
 export const Navbar = () => {
   return (
     <nav className={styles.root}>
       <ul className={styles.menu}>
         <li className={styles.menu_item}>
-          <a href="#restaurants">Restaurants</a>
+          <Link href="/#restaurants">Restaurants</Link>
         </li>
         <li className={styles.menu_item}>
-          <a href="#promo">Deals</a>
+          <Link href="/#promo">Deals</Link>
         </li>
         <li className={styles.menu_item}>
-          <a href="#">My orders</a>
+          <Link href="/#">Orders</Link>
         </li>
         <li className={`${styles.menu_item} ${styles.basket}`}>
           <svg

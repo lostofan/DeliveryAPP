@@ -4,6 +4,9 @@
   justify-content: flex-start;
   border: 1px solid var(--gray-light);
   border-radius: 16px;
+  &:hover {
+    opacity: 0.75;
+  }
   .img_wrapper {
     img {
       width: 100%;

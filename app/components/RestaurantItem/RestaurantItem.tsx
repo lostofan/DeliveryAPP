@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './RestaurantItem.module.scss';
+import { ModalPortal } from '../ModalPortal/ModalPortal';
 interface RestaurantProps {
   name: string;
   address: string;
@@ -12,6 +13,7 @@ interface RestaurantProps {
 export const RestaurantItem: React.FC<RestaurantProps> = ({ img, name, address, kitchens }) => {
   return (
     <div className={styles.root}>
+      <ModalPortal img={img} name={name} address={address} />
       <div className={styles.img_wrapper}>
         <img src={img} alt="" />
       </div>

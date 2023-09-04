@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { ProviderWrapper } from './Redux/provider';
 
 import '../app/style/globals.scss';

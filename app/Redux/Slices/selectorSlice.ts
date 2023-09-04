@@ -3,15 +3,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
-export interface SelectorState {
+export interface ISelectorState {
   filter: string[];
+  kitchens: string[];
 }
 export interface IFilter {
   name: string;
 }
 
-const initialState: SelectorState = {
+const initialState: ISelectorState = {
   filter: [],
+  kitchens: ['Pizza', 'Burger', 'BBQ', 'Sushi', 'Vegan', 'Desserts'],
 };
 
 const selectorSlice = createSlice({
@@ -32,5 +34,6 @@ const selectorSlice = createSlice({
 });
 
 export const selectFilter = (state: RootState) => state.selector.filter;
+export const selectKitchens = (state: RootState) => state.selector.kitchens;
 export const { addFilter } = selectorSlice.actions;
 export default selectorSlice.reducer;
