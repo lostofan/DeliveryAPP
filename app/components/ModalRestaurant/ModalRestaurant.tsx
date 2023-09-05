@@ -1,20 +1,33 @@
+'use client';
 import React from 'react';
 import styles from './ModalRestaurant.module.scss';
 import Image from 'next/image';
+import { useGetRestaurant } from '@/app/hooks/useGetRestaurant';
 
 interface IModalRestaurantProps {
   onClose: () => void;
-  img: string;
-  name: string;
-  address: string;
+  id: number;
 }
+interface IRestaurant {
+  id?: number;
+  name?: string;
+  address?: string;
+  img?: string;
+  menu?: IMenu[];
+}
+interface IMenu {
+  menuItems: IMenuItem[];
+}
+interface IMenuItem {
+  id: number;
+  name: string;
+  price: number;
+  img: string;
+  menuId: number;
+}
+export const ModalRestaurant: React.FC<IModalRestaurantProps> = ({ onClose, id }) => {
+  const { name, address, img, menu }: IRestaurant = useGetRestaurant(id);
 
-export const ModalRestaurant: React.FC<IModalRestaurantProps> = ({
-  onClose,
-  img,
-  name,
-  address,
-}) => {
   return (
     <div className={styles.root}>
       <div className={styles.modal}>
@@ -28,49 +41,18 @@ export const ModalRestaurant: React.FC<IModalRestaurantProps> = ({
         </div>
         <div className={styles.content}>
           <div className={styles.menuCategory}>
-            <h3 className={styles.categoryTitle}>PROMO</h3>
+            <h3 className={styles.categoryTitle}>FOOD</h3>
             <div className={styles.menuList}>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>{`1499 $`}</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>1499</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>1499</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>1499</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>1499</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.menuCategory}>
-            <h3 className={styles.categoryTitle}>SOUP</h3>
-            <div className={styles.menuList}>
-              <div className={styles.menuItem}>
-                <Image src="/imgs/avatar.png" alt="food" width={200} height={150}></Image>
-                <div className={styles.price}>1499</div>
-                <div className={styles.titleMenu}>xdxd</div>
-                <button className={styles.addBtn}>ADD</button>
-              </div>
+              {menu
+                ? menu[0].menuItems.map(({ id, name, price, img }) => (
+                    <div key={id} className={styles.menuItem}>
+                      <img src={img} alt="food"></img>
+                      <div className={styles.price}>{`${price} $`}</div>
+                      <div className={styles.titleMenu}>{name}</div>
+                      <button className={styles.addBtn}>ADD</button>
+                    </div>
+                  ))
+                : false}
             </div>
           </div>
         </div>

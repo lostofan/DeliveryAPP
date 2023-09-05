@@ -7,12 +7,10 @@ import { ClickAwayListener } from '../ClickAwayListener';
 
 interface IModalPortal {
   children: React.ReactNode;
-  img: string;
-  name: string;
-  address: string;
+  id: number;
 }
 
-export const ModalPortal: React.FC<IModalPortal> = ({ children, img, name, address }) => {
+export const ModalPortal: React.FC<IModalPortal> = ({ children, id }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClickAway = () => {
@@ -20,18 +18,20 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, img, name, addre
       setShowModal(false);
     }
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  const openModal = () => {
+    setShowModal(true);
+  };
   return (
     <>
       <div onClick={() => setShowModal(true)}>{children}</div>
       {showModal &&
         createPortal(
           <ClickAwayListener onClickAway={handleClickAway}>
-            <ModalRestaurant
-              onClose={() => setShowModal(false)}
-              img={img}
-              name={name}
-              address={address}
-            />
+            <ModalRestaurant onClose={() => setShowModal(false)} id={id} />
           </ClickAwayListener>,
           document.body,
         )}

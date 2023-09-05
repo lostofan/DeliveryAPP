@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useAppSelector } from './Redux/hook';
-import { selectFilter } from './Redux/Slices/selectorSlice';
+import { useAppSelector } from '../Redux/hook';
+import { selectFilter } from '../Redux/Slices/selectorSlice';
 
 export function useGetRestaurants(prop: string) {
   const [restaurants, setRestaurants] = useState([]);

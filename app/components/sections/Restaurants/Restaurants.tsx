@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useGetRestaurants } from '../../../useGetRestaurants';
+import { useGetRestaurants } from '../../../hooks/useGetRestaurants';
 import styles from './Restaurants.module.scss';
 import { RestaurantItem } from '../../RestaurantItem';
 import { useAppSelector } from '@/app/Redux/hook';
@@ -16,7 +16,7 @@ export const Restaurants = () => {
       <h2 className={styles.title}>Restaurants</h2>
       <div className={styles.restaurantsList}>
         {restaurants.map(({ id, name, address, kitchens, img }) => (
-          <ModalPortal key={id} name={name} address={address} img={img}>
+          <ModalPortal key={id} id={id}>
             <RestaurantItem name={name} address={address} kitchens={kitchens} img={img} />
           </ModalPortal>
         ))}
