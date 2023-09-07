@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { Navbar } from '../../Navbar';
 import Image from 'next/image';
 import logo from 'public/imgs/logo.png';
 import search from 'public/imgs/search.svg';
+import { Navbar } from '../../Navbar';
 
 export const Header = () => {
   return (
