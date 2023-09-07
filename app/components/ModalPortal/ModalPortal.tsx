@@ -42,7 +42,7 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
             showModal &&
             createPortal(
               <ClickAwayListener onClickAway={handleClickAway}>
-                <ProfileModal onClose={() => setShowModal(false)} id={id} />
+                <ProfileModal onClose={() => setShowModal(false)} />
               </ClickAwayListener>,
               document.body,
             )
