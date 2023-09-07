@@ -3,7 +3,7 @@ import { Restaurants } from './components/sections/Restaurants/Restaurants';
 import { Promo } from './components/sections/Promo';
 import { Selector } from './components/sections/Selector';
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Header />

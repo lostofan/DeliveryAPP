@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ProviderWrapper } from './Redux/provider';
+import { ReduxProvider } from './Redux/provider';
+import { AuthProvider } from './authProvider';
 
 import '../app/style/globals.scss';
 import '../app/style/normalize.css';
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <ProviderWrapper>{children}</ProviderWrapper>
+        <AuthProvider>
+          <ReduxProvider>{children}</ReduxProvider>
+        </AuthProvider>
       </body>
     </html>
   );

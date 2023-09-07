@@ -1,6 +1,7 @@
 html {
   max-width: 1110px;
   margin: 0 auto;
+  overflow-y: scroll;
   background-color: #fff;
   scroll-behavior: smooth;
   font-family: 'Nunito';
@@ -16,7 +17,9 @@ button,
 a,
 h2,
 h3,
-h4 {
+h4,
+p,
+ul {
   all: unset;
 }
 button,

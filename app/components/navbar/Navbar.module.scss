@@ -10,7 +10,7 @@
     .menu_item {
       list-style: none;
     }
-    .menu_item:nth-child(3) {
+    .orders {
       border-left: 1px solid var(--gray-light);
       padding-left: 20px;
     }
@@ -24,7 +24,7 @@
       height: 48px;
       margin: auto;
     }
-    .menu_item:last-child {
+    .profile {
       outline: 2px solid var(--light);
       border-radius: 16px;
       width: 48px;

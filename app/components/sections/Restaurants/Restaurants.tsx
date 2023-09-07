@@ -16,7 +16,7 @@ export const Restaurants = () => {
       <h2 className={styles.title}>Restaurants</h2>
       <div className={styles.restaurantsList}>
         {restaurants.map(({ id, name, address, kitchens, img }) => (
-          <ModalPortal key={id} id={id}>
+          <ModalPortal key={id} id={id} type={'menu'}>
             <RestaurantItem name={name} address={address} kitchens={kitchens} img={img} />
           </ModalPortal>
         ))}
