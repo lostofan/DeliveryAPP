@@ -6,11 +6,13 @@ import { ModalRestaurant } from '../ModalRestaurant';
 import React from 'react';
 import { ClickAwayListener } from '../ClickAwayListener';
 import { ProfileModal } from '../ProfileModal';
+import { BasketModal } from '../BasketModal';
+import styles from './ModalPortal.module.scss';
 
 interface IModalPortal {
   children: React.ReactNode;
   id?: number;
-  type: 'menu' | 'profile';
+  type: 'menu' | 'profile' | 'basket';
 }
 
 export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
@@ -30,9 +32,11 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
             showModal &&
             id &&
             createPortal(
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <ModalRestaurant onClose={() => setShowModal(false)} id={id} />
-              </ClickAwayListener>,
+              <div className={styles.root}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <ModalRestaurant onClose={() => setShowModal(false)} id={id} />
+                </ClickAwayListener>
+              </div>,
               document.body,
             )
           );
@@ -41,9 +45,24 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
           return (
             showModal &&
             createPortal(
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <ProfileModal onClose={() => setShowModal(false)} />
-              </ClickAwayListener>,
+              <div className={styles.root}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <ProfileModal onClose={() => setShowModal(false)} />
+                </ClickAwayListener>
+              </div>,
+              document.body,
+            )
+          );
+        }
+        case 'basket': {
+          return (
+            showModal &&
+            createPortal(
+              <div className={styles.basket}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <BasketModal onClose={() => setShowModal(false)} />
+                </ClickAwayListener>
+              </div>,
               document.body,
             )
           );

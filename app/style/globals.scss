@@ -1,11 +1,13 @@
 html {
-  max-width: 1110px;
-  margin: 0 auto;
   overflow-y: scroll;
   background-color: #fff;
   scroll-behavior: smooth;
   font-family: 'Nunito';
   position: relative;
+}
+.appWrapper {
+  max-width: 1110px;
+  margin: 0 auto;
 }
 a,
 p,

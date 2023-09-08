@@ -21,7 +21,11 @@ export const RestaurantItem: React.FC<RestaurantProps> = ({ img, name, address, 
         <div className={styles.kitchen_block}>
           {kitchens.map(({ kitchenName }, idx) => (
             <div key={idx} className={styles.kitchen_item}>
-              <img className={styles.kitchen_ico} src={`imgs/${kitchenName}.png`} alt="" />
+              <img
+                className={styles.kitchen_ico}
+                src={`imgs/${kitchenName.toLowerCase()}.png`}
+                alt=""
+              />
               {kitchenName}
             </div>
           ))}
