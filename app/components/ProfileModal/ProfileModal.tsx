@@ -27,7 +27,7 @@ export const ProfileModal: React.FC<ProfileModal> = ({ onClose }) => {
   const [isEmail, setEmail] = useState(email);
 
   async function updateUser(id: number) {
-    await fetch(`http://localhost:3000/api/getUser/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getUser/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         firstName: isFirstName,

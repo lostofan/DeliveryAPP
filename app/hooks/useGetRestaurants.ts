@@ -7,7 +7,7 @@ export function useGetRestaurants(prop: string) {
   const array = useAppSelector(selectFilter);
 
   async function getRestaurants() {
-    const res = await fetch(`http://localhost:3000/api/getRestaurants`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getRestaurants`, {
       headers: {
         xd: prop,
       },

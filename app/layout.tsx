@@ -6,7 +6,6 @@ import '../app/style/globals.scss';
 import '../app/style/normalize.css';
 import '../app/style/variables.scss';
 import '../app/style/fonts.scss';
-
 export const metadata: Metadata = {
   title: 'Delivery-app',
   description: 'ORDER IT! EAT IT!',
