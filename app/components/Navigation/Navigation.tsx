@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Navbar.module.scss';
+import styles from './Navigation.module.scss';
 import Image from 'next/image';
 import avatar from 'public/imgs/avatar.png';
 import Link from 'next/link';
