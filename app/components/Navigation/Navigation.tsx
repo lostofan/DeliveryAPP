@@ -9,7 +9,7 @@ import { SignOut } from '@/app/components/LoginBtns/SignOut';
 import { SignIn } from '@/app/components/LoginBtns/SignIn';
 import { ModalPortal } from '../ModalPortal/ModalPortal';
 
-export const Navbar = async () => {
+export const Navigation = async () => {
   const isAuth = await getServerSession(authOptions);
   return (
     <nav className={styles.root}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { Navbar } from '../../Navbar';
+import { Navigation } from '../../Navigation';
 import Image from 'next/image';
 import logo from 'public/imgs/logo.png';
 import search from 'public/imgs/search.svg';
@@ -17,7 +17,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-      <Navbar />
+      <Navigation />
     </header>
   );
 };
