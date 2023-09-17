@@ -6,13 +6,22 @@
   flex-direction: row;
   justify-content: flex-start;
   color: white;
-  max-width: 1110px;
+  width: 57%;
   padding: 15px;
   height: 80vh;
   background-color: var(--lightest);
   border-radius: 30px;
   gap: 30px;
   margin: 0 auto;
+
+  @media only screen and (max-width: 1100px) {
+    width: 90vw;
+  }
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
   .title {
     color: black;
     font-size: 20px;
@@ -20,8 +29,10 @@
     margin-bottom: 20px;
   }
   .settings {
+    @media only screen and (max-width: 900px) {
+      width: 100%;
+    }
     .settingsList {
-      width: 350px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -68,6 +79,7 @@
     }
   }
   .category {
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: black;
@@ -76,6 +88,9 @@
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-between;
+      @media only screen and (max-width: 1100px) {
+        flex-direction: column;
+      }
       gap: 16px;
       .optionsChange {
         display: flex;
@@ -83,10 +98,13 @@
         justify-content: flex-start;
 
         .optionsInput {
-          width: 300px;
+          width: 15vw;
           border: 1px solid black;
           padding: 12px;
           border-radius: 8px;
+          @media only screen and (max-width: 1100px) {
+            width: 90%;
+          }
         }
       }
       .optionsBtns {
@@ -94,12 +112,23 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        @media only screen and (max-width: 600px) {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
         button {
           text-align: center;
           font-size: 14px;
           font-weight: 800;
           border-radius: 8px;
           padding: 12px 16px;
+        }
+        button:first-child {
+          color: var(--red);
+          border: 2px solid var(--red);
+          width: 90px;
         }
         .logOutBtn {
           color: var(--red);
@@ -117,7 +146,7 @@
 .closeBtn {
   color: var(--main);
   position: absolute;
-  right: -30px;
+  right: 30px;
   top: 15px;
   font-weight: 800;
   font-size: 24px;

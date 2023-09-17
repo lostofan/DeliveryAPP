@@ -1,31 +1,11 @@
 'use client';
 import React from 'react';
-import styles from './ModalRestaurant.module.scss';
+import styles from './RestaurantModal.module.scss';
 import Image from 'next/image';
 import { useGetRestaurant } from '@/app/hooks/useGetRestaurant';
+import { IRestaurant, IRestaurantModalProps } from './RestaurantModal.types';
 
-interface IModalRestaurantProps {
-  onClose: () => void;
-  id: number;
-}
-interface IRestaurant {
-  id?: number;
-  name?: string;
-  address?: string;
-  img?: string;
-  menu?: IMenu[];
-}
-interface IMenu {
-  menuItems: IMenuItem[];
-}
-interface IMenuItem {
-  id: number;
-  name: string;
-  price: number;
-  img: string;
-  menuId: number;
-}
-export const ModalRestaurant: React.FC<IModalRestaurantProps> = ({ onClose, id }) => {
+export const RestaurantModal: React.FC<IRestaurantModalProps> = ({ onClose, id }) => {
   const { name, address, img, menu }: IRestaurant = useGetRestaurant(id);
 
   return (
@@ -33,8 +13,14 @@ export const ModalRestaurant: React.FC<IModalRestaurantProps> = ({ onClose, id }
       <button className={styles.closeBtn} onClick={onClose}>
         X
       </button>
-      <div className={styles.header}>
-        <img className={styles.image} src={img} alt="" />
+      <div
+        className={styles.header}
+        style={{
+          backgroundImage: `url(${img})`,
+          backgroundSize: '100%',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+        }}>
         <div className={styles.title}>{name}</div>
         <div className={styles.address}>{address}</div>
       </div>

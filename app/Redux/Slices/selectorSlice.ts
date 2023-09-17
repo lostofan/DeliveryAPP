@@ -20,20 +20,16 @@ const selectorSlice = createSlice({
   name: 'selector',
   initialState,
   reducers: {
-    addFilter: (state, action: PayloadAction<IFilter>) => {
-      if (state.filter.includes(action.payload.name)) {
-        state.filter.splice(
-          state.filter.findIndex((e) => e === action.payload.name),
-          1,
-        );
-      } else {
-        state.filter.push(action.payload.name);
-      }
+    addSelector: (state, action: PayloadAction<IFilter>) => {
+      state.filter.push(action.payload.name);
+    },
+    subSelector: (state, action: PayloadAction<IFilter>) => {
+      state.filter = state.filter.filter((elem) => elem !== action.payload.name);
     },
   },
 });
 
 export const selectFilter = (state: RootState) => state.selector.filter;
 export const selectKitchens = (state: RootState) => state.selector.kitchens;
-export const { addFilter } = selectorSlice.actions;
+export const { addSelector, subSelector } = selectorSlice.actions;
 export default selectorSlice.reducer;

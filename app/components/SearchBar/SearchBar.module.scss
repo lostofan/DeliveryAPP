@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--gray-light);
+  color: #83859c;
+  width: 220px;
+  padding: 10px;
+  border-radius: 12px;
+  input {
+    width: 100%;
+  }
+}

@@ -4,10 +4,15 @@ html {
   scroll-behavior: smooth;
   font-family: 'Nunito';
   position: relative;
+  justify-content: flex-start;
+  overflow-x: hidden;
 }
 .appWrapper {
   max-width: 1110px;
   margin: 0 auto;
+  @media only screen and (max-width: 1109px) {
+    padding: 0 25px;
+  }
 }
 a,
 p,

@@ -2,10 +2,6 @@
 
 import { signOut } from 'next-auth/react';
 
-export const SignOut = () => {
-  return (
-    <>
-      <button onClick={() => signOut()}>Sign Out</button>
-    </>
-  );
+export const SignOut = ({ children }: { children: React.ReactNode }) => {
+  return <button onClick={() => signOut()}>{children}</button>;
 };

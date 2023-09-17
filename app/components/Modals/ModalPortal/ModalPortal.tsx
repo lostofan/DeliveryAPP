@@ -1,19 +1,15 @@
 'use client';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalRestaurant } from '../ModalRestaurant';
+import { RestaurantModal } from '../RestaurantModal';
 
 import React from 'react';
-import { ClickAwayListener } from '../ClickAwayListener';
+import { ClickAwayListener } from '../../ClickAwayListener';
 import { ProfileModal } from '../ProfileModal';
 import { BasketModal } from '../BasketModal';
 import styles from './ModalPortal.module.scss';
-
-interface IModalPortal {
-  children: React.ReactNode;
-  id?: number;
-  type: 'menu' | 'profile' | 'basket';
-}
+import { IModalPortal } from './ModalPortal.types';
+import { BurgerMenu } from '../../BurgerMenu/BurgerMenu';
 
 export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +30,7 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
             createPortal(
               <div className={styles.root}>
                 <ClickAwayListener onClickAway={handleClickAway}>
-                  <ModalRestaurant onClose={() => setShowModal(false)} id={id} />
+                  <RestaurantModal onClose={() => setShowModal(false)} id={id} />
                 </ClickAwayListener>
               </div>,
               document.body,
@@ -67,14 +63,28 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
             )
           );
         }
+        case 'burger': {
+          return (
+            showModal &&
+            createPortal(
+              <div className={styles.burger}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <BurgerMenu />
+                </ClickAwayListener>
+              </div>,
+              document.body,
+            )
+          );
+        }
       }
     }
   };
 
   return (
     <>
-      <div onClick={() => setShowModal(true)}>{children}</div>
-
+      <div className={type === 'burger' ? styles.wrapper : ''} onClick={() => setShowModal(true)}>
+        {children}
+      </div>
       {renderModal(type)}
     </>
   );

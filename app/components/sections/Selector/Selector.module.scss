@@ -1,8 +1,11 @@
 .root {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   margin-bottom: 48px;
+  gap: 16px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .item_active,
 .item_active:hover {

@@ -5,7 +5,7 @@ import styles from './Restaurants.module.scss';
 import { RestaurantItem } from '../../RestaurantItem';
 import { useAppSelector } from '@/app/Redux/hook';
 import { selectFilter } from '@/app/Redux/Slices/selectorSlice';
-import { ModalPortal } from '../../ModalPortal/ModalPortal';
+import { ModalPortal } from '../../Modals/ModalPortal/ModalPortal';
 
 export const Restaurants = () => {
   const array = useAppSelector(selectFilter).toString();

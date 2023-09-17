@@ -3,12 +3,13 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  padding: 14px 68px;
+  padding: 14px 5%;
   outline: 1px solid var(--gray-light);
   border-radius: 16px;
   background-color: var(--white);
   font-size: 13px;
   font-weight: 700;
+  margin: 1px;
   &:hover {
     outline: 1px solid var(--main);
     background-color: var(--lightest);

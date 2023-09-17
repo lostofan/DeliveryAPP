@@ -1,5 +1,4 @@
 .root {
-  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,23 +8,59 @@
   position: sticky;
   background-color: var(--white);
   z-index: 10;
+
   .logo_side {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 48px;
-    .search {
+  }
+
+  .menu {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 700;
+
+    @media only screen and (max-width: 600px) {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: var(--gray-light);
-      color: #83859c;
-      width: 220px;
-      padding: 10px;
-      border-radius: 12px;
-      input {
-        width: 100%;
+    }
+    .menu_item {
+      list-style: none;
+    }
+  }
+  .basket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light);
+    border-radius: 16px;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    svg {
+      stroke: var(--main);
+    }
+    &:hover {
+      background-color: var(--main);
+      svg {
+        stroke: var(--white);
       }
+    }
+  }
+  .profile {
+    outline: 2px solid var(--light);
+    border-radius: 16px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .signout {
+    display: block;
+    @media only screen and (max-width: 600px) {
+      display: none;
     }
   }
 }

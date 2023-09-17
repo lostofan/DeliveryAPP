@@ -4,19 +4,10 @@ import styles from './ProfileModal.module.scss';
 import { useUpdateUser } from '@/app/hooks/useUpdateUser';
 import { useGetUser } from '@/app/hooks/useGetUser';
 import { useSession } from 'next-auth/react';
+import { IProfileModal, IUser } from './ProfileModal.types';
+import { SignOut } from '../../LoginBtns/SignOut';
 
-interface ProfileModal {
-  onClose: () => void;
-}
-interface IUser {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  password?: string;
-  address?: string;
-  phone?: string;
-}
-export const ProfileModal: React.FC<ProfileModal> = ({ onClose }) => {
+export const ProfileModal: React.FC<IProfileModal> = ({ onClose }) => {
   const session = useSession();
   const { firstName, lastName, email, password, address, phone }: IUser = useGetUser(
     session.data?.user.id,
@@ -161,7 +152,7 @@ export const ProfileModal: React.FC<ProfileModal> = ({ onClose }) => {
             />
           </div>
           <div className={styles.optionsBtns}>
-            <button className={styles.logOutBtn}>Log out</button>
+            <SignOut>Log out</SignOut>
             <button className={styles.saveBtn} onClick={() => updateUser(session.data?.user.id)}>
               Save changes
             </button>

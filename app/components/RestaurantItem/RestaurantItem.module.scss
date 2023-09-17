@@ -1,10 +1,13 @@
 .root {
-  width: 340px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   border: 1px solid var(--gray-light);
   border-radius: 16px;
+  @media only screen and (max-width: 400px) {
+    width: 250px;
+  }
   &:hover {
     opacity: 0.75;
   }

@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './SelectorItem.module.scss';
 import Image from 'next/image';
-
-interface IDoFilter {
-  doFilter: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, name: string) => void;
-  name: string;
-}
+import { IDoFilter } from './SelectorItem.types';
 
 export const SelectorItem: React.FC<IDoFilter> = ({ doFilter, name }) => {
   return (

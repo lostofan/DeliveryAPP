@@ -17,7 +17,6 @@ async function main() {
       phone: '79043414897',
     },
   });
-  console.log({ user });
 }
 main()
   .then(() => prisma.$disconnect())
