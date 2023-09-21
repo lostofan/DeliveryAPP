@@ -1,5 +1,5 @@
 .modal {
-  position: sticky;
+  position: fixed;
   top: 10%;
   right: 0;
   display: flex;
@@ -8,16 +8,64 @@
   color: white;
   width: 400px;
   height: 80vh;
-  background-color: var(--gray);
+  background-color: var(--gray-light);
   border-radius: 30px;
   gap: 30px;
   color: black;
-}
-.closeBtn {
-  color: var(--main);
-  position: absolute;
-  right: 30px;
-  top: 15px;
-  font-weight: 800;
-  font-size: 24px;
+  z-index: 150;
+  @media (max-width: 420px) {
+    width: 300px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 800;
+  }
+  .orders {
+    width: 100%;
+    text-align: center;
+    overflow-y: scroll;
+    .ordersList {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15px;
+      gap: 15px;
+      text-align: left;
+
+      .ordersItem {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        background-color: var(--gray-light);
+        padding: 10px;
+        box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.2);
+        .img {
+          width: 100px;
+          background-color: #fff;
+          border: 1px solid black;
+        }
+        .deleteBtn {
+          position: absolute;
+          right: 0px;
+          top: 0;
+          height: 30px;
+          width: 30px;
+          font-size: 30px;
+          font-weight: 800;
+          color: var(--red);
+          text-align: center;
+        }
+        .orderInfo {
+          display: flex;
+          flex-direction: column;
+          .name {
+            font-size: 24px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
 }

@@ -19,6 +19,9 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
       setShowModal(false);
     }
   };
+  const onClose = () => {
+    setShowModal(false);
+  };
 
   const renderModal = (type: string) => {
     {
@@ -28,11 +31,16 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
             showModal &&
             id &&
             createPortal(
-              <div className={styles.root}>
+              <>
+                <div className={styles.root}>
+                  <button className={styles.closeBtn} onClick={onClose}>
+                    X
+                  </button>
+                </div>
                 <ClickAwayListener onClickAway={handleClickAway}>
-                  <RestaurantModal onClose={() => setShowModal(false)} id={id} />
+                  <RestaurantModal id={id} />
                 </ClickAwayListener>
-              </div>,
+              </>,
               document.body,
             )
           );
@@ -41,11 +49,16 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
           return (
             showModal &&
             createPortal(
-              <div className={styles.root}>
+              <>
+                <div className={styles.root}>
+                  <button className={styles.closeBtn} onClick={onClose}>
+                    X
+                  </button>
+                </div>
                 <ClickAwayListener onClickAway={handleClickAway}>
-                  <ProfileModal onClose={() => setShowModal(false)} />
+                  <ProfileModal onClose={onClose} />
                 </ClickAwayListener>
-              </div>,
+              </>,
               document.body,
             )
           );
@@ -54,11 +67,16 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
           return (
             showModal &&
             createPortal(
-              <div className={styles.basket}>
+              <>
+                <div className={styles.basket}>
+                  <button className={styles.closeBtn} onClick={onClose}>
+                    X
+                  </button>
+                </div>
                 <ClickAwayListener onClickAway={handleClickAway}>
-                  <BasketModal onClose={() => setShowModal(false)} />
+                  <BasketModal onClose={onClose} />
                 </ClickAwayListener>
-              </div>,
+              </>,
               document.body,
             )
           );
@@ -67,11 +85,12 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
           return (
             showModal &&
             createPortal(
-              <div className={styles.burger}>
+              <>
+                <div className={styles.burger}></div>
                 <ClickAwayListener onClickAway={handleClickAway}>
                   <BurgerMenu />
                 </ClickAwayListener>
-              </div>,
+              </>,
               document.body,
             )
           );
@@ -81,11 +100,9 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
   };
 
   return (
-    <>
-      <div className={type === 'burger' ? styles.wrapper : ''} onClick={() => setShowModal(true)}>
-        {children}
-      </div>
+    <div className={type === 'burger' ? styles.wrapper : ''} onClick={() => setShowModal(true)}>
+      {children}
       {renderModal(type)}
-    </>
+    </div>
   );
 };

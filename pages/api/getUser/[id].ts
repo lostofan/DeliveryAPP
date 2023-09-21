@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'GET':
       return handleGET(req, res);
     case 'PUT':
-      return handlePOST(req, res);
+      return handlePUT(req, res);
 
     default:
       throw new Error(`The HTTP ${req.method} method is not supported at this route.`);
@@ -21,7 +21,7 @@ async function handleGET(req: NextApiRequest, res: NextApiResponse<any>) {
   return res.status(200).json(data);
 }
 
-async function handlePOST(req: NextApiRequest, res: NextApiResponse<any>) {
+async function handlePUT(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id } = req.query;
   const { firstName, lastName, email, phone } = JSON.parse(req.body);
   const data = await prisma.user.update({

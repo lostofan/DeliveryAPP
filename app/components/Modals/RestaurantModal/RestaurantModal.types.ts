@@ -1,5 +1,4 @@
 export interface IRestaurantModalProps {
-  onClose: () => void;
   id: number;
 }
 export interface IRestaurant {
