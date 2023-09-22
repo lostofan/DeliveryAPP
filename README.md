@@ -54,6 +54,7 @@ Technologies used in the project:
 *   Supabase
 
 <h2>TO DO</h2>
-* Adding food animation
-* Popup on adding
-* Placeholders on load
+
+*   Adding food animation
+*   Popup on adding
+*   Placeholders on load
