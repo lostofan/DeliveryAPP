@@ -52,3 +52,8 @@ Technologies used in the project:
 *   Next.JS
 *   Prisma
 *   Supabase
+
+<h2>TO DO</h2>
+* Adding food animation
+* Popup on adding
+* Placeholders on load
