@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './BasketModal.module.scss';
 import { useGetOrder } from '@/app/hooks/useGetOrder';
 import { deleteOrder } from './helpers/deleteOrder';
@@ -39,7 +39,7 @@ export const BasketModal: React.FC<ProfileModal> = ({ onClose }) => {
                   <p className={styles.price}>{price + '$'}</p>
                 </div>
 
-                <button className={styles.deleteBtn} onClick={() => deleteOrder(id)}>
+                <button className={styles.deleteBtn} onClick={(e) => deleteOrder(id, e)}>
                   X
                 </button>
               </li>
