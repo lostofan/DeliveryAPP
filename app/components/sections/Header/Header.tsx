@@ -23,9 +23,6 @@ export const Header = async () => {
       <ul className={styles.menu}>
         {isAuth ? (
           <>
-            <li className={`${styles.menu_item} ${styles.basket}`}>
-              <BasketButton />
-            </li>
             <li className={`${styles.menu_item} ${styles.profile}`}>
               <ProfileButton />
             </li>
