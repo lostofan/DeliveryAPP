@@ -5,5 +5,4 @@ export const deleteOrder = async (id: number) => {
       id: id,
     }),
   });
-  window.location.reload();
 };
