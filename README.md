@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" id="title">Delivery App</h1>
 
-## Getting Started
+<p align="center"><img src="https://socialify.git.ci/lostofan/DeliveryAPP/image?language=1&amp;name=1&amp;owner=1&amp;theme=Light" alt="project-image"></p>
 
-First, run the development server:
+<h2>🚀 Demo</h2>
 
-```bash
+[https://delivery-app-plum.vercel.app/](https://delivery-app-plum.vercel.app/)
+
+<h2>Project Screenshots:</h2>
+
+
+<img src="https://sun9-53.userapi.com/impg/4VHMnwqmnc4P0QNHQAJbRW7vb4PSENC_0ewd3g/NQfNIxbQHHM.jpg?size=1894x923&amp;quality=96&amp;sign=bede26476713aa7998a8bbe58aca4679&amp;type=album" alt="project-screenshot" width="250"/><img src="https://sun9-41.userapi.com/impg/oNADoIP0ayoMf9EOVYW8kZD7vBi90cUQloSa3w/tKbaAv_IADM.jpg?size=1900x927&amp;quality=96&amp;sign=5eaf3b8a9b47b318115bc8e4310414ea&amp;type=album" alt="project-screenshot" width="300"/><img src="https://sun9-73.userapi.com/impg/RXv3ajuocY4jbnNSCd7nlzkrKu_Pq8Lep9ml1Q/UHWRk1_RgbU.jpg?size=1897x918&amp;quality=96&amp;sign=627af76361383936816ff744829be749&amp;type=album" alt="project-screenshot" width="250"/>
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Backend (Prisma Supabase as a database)
+*   Frontend (React + Next.JS)
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. to Start</p>
+
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>2. Create .env in root</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+DATABASE_URL="YOUR DATABASE KEY"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p>3. Also create .env.local</p>
 
-## Learn More
+```
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+```
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXTAUTH_SECRET="Your auth key"
+```
+  
+<h2>💻 Built with</h2>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Technologies used in the project:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+*   React
+*   Next.JS
+*   Prisma
+*   Supabase
 
-## Deploy on Vercel
+<h2>TO DO</h2>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+*   Adding food animation
+*   Popup on adding
+*   Placeholders on load
