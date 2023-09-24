@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useGetUser(id: number) {
+export function useGetUser(id: number | string) {
   const [user, setUser] = useState({});
 
   async function getUser() {

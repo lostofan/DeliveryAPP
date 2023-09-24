@@ -13,12 +13,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 async function handlePOST(req: NextApiRequest, res: NextApiResponse<any>) {
   const { price, userId, menuItemId } = JSON.parse(req.body);
+  const order = await prisma.order.findUnique({
+    where: {
+      userId: userId,
+    },
+    select: {
+      id: true,
+    },
+  });
   const data = await prisma.orderItem.create({
     data: {
       quantity: 1,
       price: price,
-      orderId: userId,
-      menuItemId: menuItemId,
+      orderId: Number(order?.id),
+      menuItemId: String(menuItemId),
     },
   });
   return res.status(200).json(data);

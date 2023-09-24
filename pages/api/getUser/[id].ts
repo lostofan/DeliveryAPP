@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 async function handleGET(req: NextApiRequest, res: NextApiResponse<any>) {
   const data = await prisma.user.findUnique({
     where: {
-      id: Number(req.query.id),
+      id: req.query.id as string,
     },
   });
   return res.status(200).json(data);
@@ -23,10 +23,11 @@ async function handleGET(req: NextApiRequest, res: NextApiResponse<any>) {
 
 async function handlePUT(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id } = req.query;
+  console.log('>>>>' + id);
   const { firstName, lastName, email, phone } = JSON.parse(req.body);
   const data = await prisma.user.update({
     where: {
-      id: Number(id),
+      id: id as string,
     },
     data: {
       firstName: firstName,

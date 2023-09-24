@@ -11,10 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 async function handleGET(req: NextApiRequest, res: NextApiResponse<any>) {
-  const id = Number(req.query.id);
+  const id = req.query.id;
   const data = await prisma.orderItem.findMany({
     where: {
-      orderId: id,
+      orderId: Number(id),
     },
     include: {
       menuItem: true,

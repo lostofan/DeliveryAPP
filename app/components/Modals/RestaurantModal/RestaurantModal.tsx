@@ -4,10 +4,13 @@ import styles from './RestaurantModal.module.scss';
 import { useGetRestaurant } from '@/app/hooks/useGetRestaurant';
 import { IRestaurant, IRestaurantModalProps } from './RestaurantModal.types';
 import { addOrder } from './helpers/addOrder';
+import { useSession } from 'next-auth/react';
 
 export const RestaurantModal: React.FC<IRestaurantModalProps> = ({ id }) => {
   const { name, address, img, menu }: IRestaurant = useGetRestaurant(id);
 
+  const session = useSession();
+  console.log('XDDD', session.data?.user);
   return (
     <div className={styles.modal}>
       <div
@@ -31,7 +34,9 @@ export const RestaurantModal: React.FC<IRestaurantModalProps> = ({ id }) => {
                     <img src={img} alt="food"></img>
                     <div className={styles.price}>{`${price} $`}</div>
                     <div className={styles.titleMenu}>{name}</div>
-                    <button className={styles.addBtn} onClick={() => addOrder(id, price, 1)}>
+                    <button
+                      className={styles.addBtn}
+                      onClick={() => addOrder(id, price, session.data?.user.id)}>
                       ADD
                     </button>
                   </div>

@@ -14,6 +14,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
 export const Header = async () => {
   const isAuth = await getServerSession(authOptions);
+
   return (
     <header className={styles.root}>
       <div className={styles.logo_side}>

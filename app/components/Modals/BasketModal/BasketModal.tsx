@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './BasketModal.module.scss';
 import { useGetOrder } from '@/app/hooks/useGetOrder';
 import { deleteOrder } from './helpers/deleteOrder';

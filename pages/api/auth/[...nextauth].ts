@@ -1,8 +1,11 @@
 import prisma from '@/app/lib/prisma';
+import { createCart } from '@/prisma/order';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { compare } from 'bcrypt';
+
 import NextAuth, { type NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
@@ -19,6 +22,10 @@ export const authOptions: NextAuthOptions = {
 
       return session;
     },
+    async signIn({ user, account, profile }) {
+      await createCart(user.id);
+      return true;
+    },
   },
 
   session: {
@@ -26,39 +33,13 @@ export const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(prisma),
   providers: [
-    CredentialsProvider({
-      name: 'Email',
-      credentials: {
-        email: {
-          label: 'Email',
-          type: 'email',
-          placeholder: 'hello@example.com',
-        },
-        password: { label: 'Password', type: 'password' },
-      },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email,
-          },
-        });
-        if (!user) {
-          return null;
-        }
-        const isPasswordValid = await compare(credentials.password, user.password);
-
-        if (!isPasswordValid) {
-          return null;
-        }
-        return {
-          id: user.id + '',
-          email: user.email,
-          address: user.address,
-        };
-      },
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
 };
