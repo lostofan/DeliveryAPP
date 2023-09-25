@@ -6,6 +6,7 @@ html {
   position: relative;
   justify-content: flex-start;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 .appWrapper {
   max-width: 1110px;
