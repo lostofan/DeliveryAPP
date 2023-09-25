@@ -11,10 +11,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 async function handleGET(req: NextApiRequest, res: NextApiResponse<any>) {
-  const id = req.query.id;
+  const userId = req.query.id;
+  const order = await prisma.order.findUnique({
+    where: {
+      userId: userId as string,
+    },
+    select: {
+      id: true,
+    },
+  });
   const data = await prisma.orderItem.findMany({
     where: {
-      orderId: Number(id),
+      orderId: Number(order?.id),
     },
     include: {
       menuItem: true,

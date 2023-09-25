@@ -10,7 +10,6 @@ export const RestaurantModal: React.FC<IRestaurantModalProps> = ({ id }) => {
   const { name, address, img, menu }: IRestaurant = useGetRestaurant(id);
 
   const session = useSession();
-  console.log('XDDD', session.data?.user);
   return (
     <div className={styles.modal}>
       <div
