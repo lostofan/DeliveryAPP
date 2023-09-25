@@ -3,22 +3,9 @@ import styles from './BasketModal.module.scss';
 import { useGetOrder } from '@/app/hooks/useGetOrder';
 import { deleteOrder } from './helpers/deleteOrder';
 import { useSession } from 'next-auth/react';
+import { IOrder } from './BasketModal.types';
 
-interface ProfileModal {
-  onClose: () => void;
-}
-interface IOrder {
-  id: number;
-  quantity: number;
-  price: number;
-  menuItem: {
-    id: number;
-    name: string;
-    img: string;
-  };
-}
-
-export const BasketModal: React.FC<ProfileModal> = ({ onClose }) => {
+export const BasketModal = () => {
   const session = useSession();
   const orders = useGetOrder(session.data?.user.id);
 

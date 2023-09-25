@@ -1,6 +1,3 @@
-export interface IProfileModal {
-  onClose: () => void;
-}
 export interface IUser {
   firstName?: string;
   lastName?: string;

@@ -56,7 +56,7 @@ export const ModalPortal: React.FC<IModalPortal> = ({ children, id, type }) => {
                   </button>
                 </div>
                 <ClickAwayListener onClickAway={handleClickAway}>
-                  <ProfileModal onClose={onClose} />
+                  <ProfileModal />
                 </ClickAwayListener>
               </>,
               document.body,

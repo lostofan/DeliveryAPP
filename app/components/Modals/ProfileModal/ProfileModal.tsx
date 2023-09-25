@@ -3,11 +3,10 @@ import React, { useState } from 'react';
 import styles from './ProfileModal.module.scss';
 import { useGetUser } from '@/app/hooks/useGetUser';
 import { useSession } from 'next-auth/react';
-import { IProfileModal, IUser } from './ProfileModal.types';
+import { IUser } from './ProfileModal.types';
 import { SignOut } from '../../LoginBtns/SignOut';
-import { ClickAwayListener } from '../../ClickAwayListener';
 
-export const ProfileModal: React.FC<IProfileModal> = ({ onClose }) => {
+export const ProfileModal = () => {
   const session = useSession();
   const { firstName, lastName, email, password, address, phone }: IUser = useGetUser(
     session.data?.user.id,
